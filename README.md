@@ -1,5 +1,5 @@
 
-### jwt-spring-security-example
+### jwt-spring-security-example ( for Spring Boot Version 2.7.12)
 
 This repository provides a comprehensive example of how to implement JWT (JSON Web Token) authentication and authorization in a Spring Security-based application. It showcases a secure and stateless authentication mechanism using JWT tokens, allowing for easy integration into various Spring Boot projects.
 
