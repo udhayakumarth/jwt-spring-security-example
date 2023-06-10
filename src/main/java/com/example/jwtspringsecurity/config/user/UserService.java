@@ -44,7 +44,6 @@ public class UserService implements UserDetailsService {
     }
 
     public String generateToke(String email,String password){
-
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(email,password));
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String token = tokenProvider.generateToken(authentication);
