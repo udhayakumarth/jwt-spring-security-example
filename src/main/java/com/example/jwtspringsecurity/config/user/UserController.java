@@ -32,8 +32,19 @@ public class UserController {
         }
     }
 
+    @GetMapping("/api/admin/products")
+    public String getProductsAdmin(){
+        return "list of products request from admin";
+    }
+
+    @GetMapping("/api/seller/products")
+    public String getProductsSeller(){
+        return "list of products request from seller";
+    }
+
     @GetMapping("/api/products")
     public String getProducts(){
         return "list of products";
     }
+
 }
