@@ -6,7 +6,7 @@ This repository provides a comprehensive example of how to implement JWT (JSON W
 
 ## Required files to create
 
-```javascript
+```java
 - config
   |- jwt
   |  |- JwtAuthenticationEntryPoint.java
@@ -15,10 +15,6 @@ This repository provides a comprehensive example of how to implement JWT (JSON W
   |
   |- security
   |  |- SecurityConfig.java
-  |
-  |- token
-  |  |- Token.java
-  |  |- TokenRepository.java
   |
   |- user
      |- User.java
@@ -34,7 +30,6 @@ This repository provides a comprehensive example of how to implement JWT (JSON W
 
 - Create a new class called JwtTokenProvider in the config.jwt package.
 - Implement methods to generate JWT tokens, validate tokens, and extract user details from tokens.
-
 
 
 ## Step 2: JwtAuthenticationEntryPoint
@@ -58,36 +53,23 @@ This repository provides a comprehensive example of how to implement JWT (JSON W
 - Define the authentication entry point and configure any other security rules or settings.
 
 
-## Step 5: Token
-
-- Create a new class called Token in the token package.
-- Define the structure and attributes of the token entity.
-
-## Step 6: TokenRepository
-
-- Create a new class called TokenRepository in the token package.
-- Implement the logic to perform CRUD operations for the Token entity.
-
-
-
-## Step 7: User
+## Step 5: User
 
 - Create a new class called User in the user package.
 - Define the structure and attributes of the user entity.
 
-## Step 8: UserRepository
+## Step 6: UserRepository
 
 - Create a new class called UserRepository in the user package.
 - Implement the logic to perform CRUD operations for the User entity.
 
-## Step 9: UserController
+## Step 7: UserController
 
 - Create a new class called UserController in the user package.
 - Implement the REST API endpoints for user-related operations, such as registration, login, profile retrieval, etc.
 
 
-
-## Step 10: UserService
+## Step 8: UserService
 
 - Create a new class called UserService in the user package.
 - Implement the business logic for user-related operations, including authentication and user management.

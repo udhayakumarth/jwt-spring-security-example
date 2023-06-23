@@ -1,10 +1,13 @@
 package com.example.jwtspringsecurity.config.user;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.stream.Collectors;
 
 @Entity
 public class User implements UserDetails {
@@ -18,8 +21,16 @@ public class User implements UserDetails {
     private String email;
     private String password;
 
-
+    private String roles;
     private boolean isEnabled=true;
+
+    public void setRoles(String roles) {
+        this.roles = roles;
+    }
+
+    public void setEnabled(boolean enabled) {
+        isEnabled = enabled;
+    }
 
     public void setIsEnabled(boolean enabled) {
         isEnabled = enabled;
@@ -47,7 +58,8 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return Arrays.stream(roles.split(",")).map(SimpleGrantedAuthority::new)
+                .collect(Collectors.toList());
     }
 
     @Override

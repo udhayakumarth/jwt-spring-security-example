@@ -1,8 +1,6 @@
 package com.example.jwtspringsecurity.config.user;
 
 import com.example.jwtspringsecurity.config.jwt.JwtTokenProvider;
-import com.example.jwtspringsecurity.config.token.Token;
-import com.example.jwtspringsecurity.config.token.TokenRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -20,8 +18,7 @@ import org.springframework.stereotype.Service;
 public class UserService implements UserDetailsService {
     @Autowired
     private UserRepository userRepository;
-    @Autowired
-    private TokenRepository tokenRepository;
+
     @Lazy
     @Autowired
     private AuthenticationManager authenticationManager;
@@ -47,9 +44,6 @@ public class UserService implements UserDetailsService {
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(email,password));
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String token = tokenProvider.generateToken(authentication);
-        Token saveToken = new Token();
-        saveToken.setToken(token);
-        tokenRepository.save(saveToken);
         return token;
     }
 
